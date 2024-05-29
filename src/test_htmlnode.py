@@ -28,6 +28,21 @@ class TestHTMLNode(unittest.TestCase):
 
         self.assertEqual(expected, actual)
 
+    def test_to_html_parent_node(self):
+        node = ParentNode(
+            "p",
+            [
+                LeafNode("b", "Bold text"),
+                LeafNode(None, "Normal text"),
+                LeafNode("i", "italic text"),
+                LeafNode(None, "Normal text"),
+                ],
+                )
+
+        expected = '<p><b>Bold text</b>Normal text<i>italic text</i>Normal text</p>'
+        actual = node.to_html()
+
+        self.assertEqual(expected, actual)
 
 
 if __name__ == "__main__":
