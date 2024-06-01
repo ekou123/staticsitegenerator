@@ -1,6 +1,6 @@
 import unittest
 
-from textnode import TextNode
+from textnode import *
 
 
 class TestTextNode(unittest.TestCase):
@@ -14,6 +14,14 @@ class TestTextNode(unittest.TestCase):
         node2 = TextNode("This is a text node", "Bold", "www.google.com")
 
         self.assertNotEqual(node, node2)
+
+    def not_assessed(self):
+        node = TextNode("This is a text node with a `code block` word", text_type_text)
+
+        
+        expected = ["This is a text node with a ", "code block", " word"]
+        actual = split_nodes_delimiter([node], "`", )
+            
 
 
 if __name__ == "__main__":
